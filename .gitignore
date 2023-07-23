@@ -51,6 +51,9 @@
 SourceArt/**/*.png
 SourceArt/**/*.tga
 
+# Platform Files
+Platforms/*
+
 # Binary Files
 Binaries/*
 Plugins/*/Binaries/*
