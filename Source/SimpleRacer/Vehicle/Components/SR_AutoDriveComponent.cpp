@@ -3,7 +3,6 @@
 
 #include "SR_AutoDriveComponent.h"
 #include "Vehicle/SR_BaseVehicle.h"
-
 #include "GameFramework/PlayerState.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "Kismet/KismetSystemLibrary.h"
@@ -56,11 +55,11 @@ void USR_AutoDriveComponent::UpdateErrors(float DeltaTime)
 
 	float TargetSpeed = UKismetMathLibrary::MapRangeClamped(FMath::Abs(AngleError), 10.f, 80.f, MaxTargetSpeed, 10.f);
 
-	if (bDebugDraw && GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(112, 0.1f, FColor::Green, FString::Printf(TEXT("AI TargetSpeed: %2.f"), TargetSpeed));
-		GEngine->AddOnScreenDebugMessage(113, 0.1f, FColor::Green, FString::Printf(TEXT("AI AngleError: %2.1f"), AngleError));
-	}
+	//if (bDebugDraw && GEngine)
+	//{
+	//	GEngine->AddOnScreenDebugMessage(112, 0.1f, FColor::Green, FString::Printf(TEXT("AI TargetSpeed: %2.f"), TargetSpeed));
+	//	GEngine->AddOnScreenDebugMessage(113, 0.1f, FColor::Green, FString::Printf(TEXT("AI AngleError: %2.1f"), AngleError));
+	//}
 	
 	const FVector LocalVelocity = GetOwner()->GetActorTransform().InverseTransformVector(Vehicle->GetVelocity()) * UMathUtils::Cms2Kmh;
 

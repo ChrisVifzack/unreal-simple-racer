@@ -92,10 +92,6 @@ void USplineFollowComponent::UpdateErrors(float DeltaTime)
 	LastSplineParam = CurrentSplineParam;
 	if (bDebugDraw)
 	{
-		if (GEngine)
-		{
-			GEngine->AddOnScreenDebugMessage(103, 0.1f, FColor::Orange, FString::Printf(TEXT("AI CurrentSplineParam: %f"), CurrentSplineParam));
-		}
 		UKismetSystemLibrary::DrawDebugSphere(GetWorld(), Spline->GetPoint(CurrentSplineParam), 15.0f, 12, FColor::Orange, 0, 3.0f);
 	}
 
@@ -119,10 +115,6 @@ void USplineFollowComponent::UpdateErrors(float DeltaTime)
 	const FVector OwnerDirection = GetOwner()->GetActorForwardVector();
 	const FVector OwnerUpVector = GetOwner()->GetActorUpVector();
 	const float Sign = FMath::Sign(FVector::DotProduct(FVector::CrossProduct(OwnerDirection, OwnerToTargetDirection), OwnerUpVector));
-	if (bDebugDraw && GEngine)
-	{
-		GEngine->AddOnScreenDebugMessage(101, 0.1f, FColor::Green, FString::Printf(TEXT("AI Sign: %f"), Sign));
-	}
 
 	const float Angle = UMathUtils::GetSmallestAngleBetweenVectorsInDegrees(
 		FVector::VectorPlaneProject(OwnerDirection, OwnerUpVector),
