@@ -23,7 +23,7 @@ public:
 	TSoftObjectPtr<UWorld> MapAsset;
 };
 
-UCLASS()
+UCLASS(BlueprintType)
 class SIMPLERACER_API USR_MapData : public UDataAsset
 {
 	GENERATED_BODY()
